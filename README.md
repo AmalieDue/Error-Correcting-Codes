@@ -88,10 +88,19 @@ Code functions:
 * `C = RSCode(n = 15, k = 7, q = 2**4)`:
 An instance of the Reed-Solomon code class is created. The following inputs are given: The length `n`, the dimension `k`, and the (extension) field `q`. Furthermore, a vector of `n` code locators `alpha` can be given, but if not then the code generates it itself.
 
-* `def Encoding(m, zeropad = True, out = 'bin', concatenated_dimension = None)`:
-Encode with the Reed-Solomon code. The message `m` which is given as input can either be a list of integers less than `q = 2**4`, e.g. `m = [1,2,3,4,5,6,7]`, or it can be a string of bits, e.g. `m = '0001001000110100010101100111'`. 
+* `def Encoding(message, zeropad = True, out = 'bin', concatenated_dimension = None)`:
+Encode with the Reed-Solomon code. The message `message` which is given as input can either be a list of integers less than `q = 2**4`, e.g. `message = [1,2,3,4,5,6,7]`, or it can be a string of bits, e.g. `message = '0001001000110100010101100111'`. The data type of the output, i.e. the codeword, is given in the `out` parameter. Possible values are `bin`, `int`, and `pol`. The default value of `out` is `'bin'`.
+
+* `def Decoding(received, out = 'pol')`:
+Decode with the Reed-Solomon code. The received word `received` which is given as input can be any output from `Encoding()`. The data type of the output, i.e. the decoded word, is given in the `out` parameter. Possible values are `bin`, `int`, and `pol`. The default value of `out` is `'int'`.
 
 
+#### Reed-Muller
+* `C = RMCode(r = 1, m = 3)`:
+An instance of the Reed-Muller code class is created. The following inputs are given: The total degree `r` and the number of variables `m`.
+
+* `def Encoding(message, zeropad = True, out = 'bin', concatenated_dimension = None):`
+Encode with the Reed-Solomon code. The message `message` which is given as input can either be ...
 
 
 
