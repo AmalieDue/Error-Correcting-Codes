@@ -11,7 +11,9 @@ The project is structured in the following way:
 * `RS.ipynb`, `RM.ipynb`, `BCH.ipynb`, and `Repetition.ipynb`: Implementations of codes.
 
 ## Usage
+Two examples are given:
 
+### Product Code
 An example of how to construct a product code is shown below:
 
 ```python
@@ -43,4 +45,38 @@ print("Decoded word: ", d)
 
 ```python
 Out[]:  Decoded word: [1, 2, 3, 4, 5, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0]
+```
+
+### Concatenated Code
+An example of how to construct a concatenated code is shown below:
+
+```python
+
+C = ConcatenatedCode(RSCode(n = 15, k = 7, q = 2**4), RMCode(r = 1, m = 3))
+```
+
+The code replies:
+
+```python
+Out[]:  "Preferred message data type is: int"
+```
+
+Define some message:
+```python
+m = [1, 2, 3, 4, 5, 6]
+c = C.Encoding(m, out = 'bin')
+print("Codeword: ", c)
+```
+
+```python
+Out[]:  Codeword: '011010010110100111001100110000111010101010101010101010100011001101011010110000111001100110101010101010100000111110010110'
+```
+
+```python
+d = C.Decoding(c, out = 'int')
+print("Decoded word: ", d)
+```
+
+```python
+Out[]:  Decoded word: [1, 2, 3, 4, 5, 6, 0]
 ```
